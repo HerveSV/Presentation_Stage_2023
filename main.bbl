@@ -193,72 +193,6 @@
       \verb https://ecommons.cornell.edu/handle/1813/28989
       \endverb
     \endentry
-    \entry{pistolesi_duffing_nodate}{unpublished}{}
-      \name{author}{1}{}{%
-        {{hash=818a363de0ef998fd180d186d21ebad7}{%
-           family={Pistolesi},
-           familyi={P\bibinitperiod},
-           given={Fabio},
-           giveni={F\bibinitperiod}}}%
-      }
-      \strng{namehash}{818a363de0ef998fd180d186d21ebad7}
-      \strng{fullhash}{818a363de0ef998fd180d186d21ebad7}
-      \strng{bibnamehash}{818a363de0ef998fd180d186d21ebad7}
-      \strng{authorbibnamehash}{818a363de0ef998fd180d186d21ebad7}
-      \strng{authornamehash}{818a363de0ef998fd180d186d21ebad7}
-      \strng{authorfullhash}{818a363de0ef998fd180d186d21ebad7}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{note}{Notes, non publié}
-      \field{title}{Duffing response in presence of thermal fluctuations}
-      \verb{file}
-      \verb DuffingDerivation.pdf:/Users/hervesv/Zotero/storage/QZA3ZDEU/DuffingDerivation.pdf:application/pdf
-      \endverb
-    \endentry
-    \entry{landau_mechanics_1976}{book}{}
-      \name{author}{2}{}{%
-        {{hash=4caa6ac5a1a332c845d137218bdff6f1}{%
-           family={Landau},
-           familyi={L\bibinitperiod},
-           given={Lev\bibnamedelima Davidovič},
-           giveni={L\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=15fbb469ae8bc0bc72cb88a58df8baaa}{%
-           family={Lifshitz},
-           familyi={L\bibinitperiod},
-           given={Evgeniĭ\bibnamedelima Mikhaĭlovich},
-           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Oxford New York}%
-      }
-      \list{publisher}{1}{%
-        {Pergamon Press}%
-      }
-      \strng{namehash}{07e67d6cdd5c29fb72257485835f5af0}
-      \strng{fullhash}{07e67d6cdd5c29fb72257485835f5af0}
-      \strng{bibnamehash}{07e67d6cdd5c29fb72257485835f5af0}
-      \strng{authorbibnamehash}{07e67d6cdd5c29fb72257485835f5af0}
-      \strng{authornamehash}{07e67d6cdd5c29fb72257485835f5af0}
-      \strng{authorfullhash}{07e67d6cdd5c29fb72257485835f5af0}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{3d ed}
-      \field{isbn}{978-0-7506-2896-9}
-      \field{langid}{english}
-      \field{number}{v. 1}
-      \field{series}{Course of theoretical physics}
-      \field{title}{Mechanics}
-      \field{year}{1976}
-      \field{dateera}{ce}
-      \verb{file}
-      \verb Landau and Lifshitz - 1976 - Mechanics.pdf:/Users/hervesv/Zotero/storage/3MZY2WQF/Landau and Lifshitz - 1976 - Mechanics.pdf:application/pdf
-      \endverb
-    \endentry
     \entry{matheny_phase_2014}{article}{}
       \name{author}{6}{}{%
         {{hash=5596d1c7951a3dec3ed7778990e618e3}{%
@@ -298,8 +232,8 @@
       \strng{authorbibnamehash}{785cb87a1a23c2954293b27b050db6f0}
       \strng{authornamehash}{785cb87a1a23c2954293b27b050db6f0}
       \strng{authorfullhash}{af4dbf038b8aff0200be567d8c47a6c1}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{6}

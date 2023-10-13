@@ -59,7 +59,16 @@
 \title{Oscillations non-linéaires et syncrhonisation}
 \author{Hervé Schmit-Veiler}
 %\institute{Université de Bordeaux}
-\date{\today}
+
+%\subtitle{Stage effectué au LOMA, groupe }
+%\subtitle{Sous la supervision de Fabio Pistolesi et Rémi Avriller}
+\date{\parbox{\linewidth}{\centering%
+13 Octobre, 2023%\today
+\endgraf\bigskip
+Stage effectué au LOMA \endgraf\medskip
+Sous le supervision de\endgraf
+Fabio Pistolesi \hspace*{0.5cm}et\hspace*{0.5cm} Rémi Avriller\endgraf
+}}
 
 \begin{document}
 
@@ -76,9 +85,9 @@
 
 % Section 1: Introduction
 \section{Introduction}
-\begin{frame}{Introduction}
+\begin{frame}{Motivation}
   \begin{itemize}
-    \item Stage au LOMA
+    \item 
     \item Étude de systèmes d'oscillateurs non-linéaires
     \item But : appliquer ces méthodes d'analyse à un système d'oscillateurs non-linéaires couplées
     \item Applications
@@ -118,90 +127,91 @@
 \end{frame}
 
 \section{Oscillateurs non-linéaires}
-\begin{frame}{Oscillateur de Duffing - 1}
-    $$ \ddot{x} + \omega_0^2 x + \gamma \dot{x} + \alpha x^3 = f_0\cos(\omega t)$$
+
+% \begin{frame}{Oscillateur de Duffing - 1}
+%     $$ \ddot{x} + \omega_0^2 x + \gamma \dot{x} + \alpha x^3 = f_0\cos(\omega t)$$
     
-    \begin{itemize}
-        \item Modèle pour structures elastiques en régime forcé et pour grandes amplitudes \cite{rand_lecture_2012}
-        \item Régime permanent presque harmonique pour des 'petits' paramètres
-        \item Doublement des periodes si $f_0$ augmente suffisament (chaos)
-    \end{itemize}
+%     \begin{itemize}
+%         \item Modèle pour structures elastiques en régime forcé et pour grandes amplitudes \cite{rand_lecture_2012}
+%         \item Régime permanent presque harmonique pour des 'petits' paramètres
+%         \item Doublement des periodes si $f_0$ augmente suffisament (chaos)
+%     \end{itemize}
 
-    \begin{figure}
-        \includegraphics[width=0.32\textwidth]{images/duffing/duffing_single_phase_plot_x0=0.4750630195324652_v0=0_gamma=0.1_w0=5_w=4_f0=10_alpha=1_epsilon=1.png}
-        \includegraphics[width=0.32\textwidth]{images/duffing/duffing_single_phase_plot_x0=0.4750630195324652_v0=0_gamma=0.1_w0=5_w=4_f0=100_alpha=1_epsilon=1.png}
-        \includegraphics[width=0.32\textwidth]{images/duffing/duffing_single_phase_plot_x0=0.4750630195324652_v0=0_gamma=0.1_w0=5_w=4_f0=100_alpha=10_epsilon=1.png}
-    \end{figure}
+%     \begin{figure}
+%         \includegraphics[width=0.32\textwidth]{images/duffing/duffing_single_phase_plot_x0=0.4750630195324652_v0=0_gamma=0.1_w0=5_w=4_f0=10_alpha=1_epsilon=1.png}
+%         \includegraphics[width=0.32\textwidth]{images/duffing/duffing_single_phase_plot_x0=0.4750630195324652_v0=0_gamma=0.1_w0=5_w=4_f0=100_alpha=1_epsilon=1.png}
+%         \includegraphics[width=0.32\textwidth]{images/duffing/duffing_single_phase_plot_x0=0.4750630195324652_v0=0_gamma=0.1_w0=5_w=4_f0=100_alpha=10_epsilon=1.png}
+%     \end{figure}
 
-    \begin{center}{\tiny Régime permanent en magenta}\end{center}
-\end{frame}
+%     \begin{center}{\tiny Régime permanent en magenta}\end{center}
+% \end{frame}
 
-\begin{frame}{Moyennement}
-    $$ \ddot{x} + \omega_0^2 x = \epsilon f(\dot{x}, x, t) \qquad 0 < \epsilon \ll \omega_0 $$
-    \begin{itemize}
-        \item Méthodes d'analyse approximative pour équations harmoniques perturbés
-        \item On suppose pouvoir trouver solutions sous la forme \cite{rand_lecture_2012} :
-            $$x(t) = r(t)\cos(\omega_0 t + \phi(t)) \qquad \dot{x}(t) =  -\omega_0 r(t)\sin(\omega_0 t + \phi(t))$$
-        %\item Remarque : on ne considère pas les contributions de $\dot{r}$ et de $\dot{\phi}$
-        \item $r(t)$ et $\phi(t)$ sont lentement variable pour petit $\epsilon$, permet de faire moyennement au premier ordre
-            $$ r(t) \approx \langle r \rangle \qquad \phi(t) \approx \langle \phi \rangle $$
-    \end{itemize}
-\end{frame}
+% \begin{frame}{Moyennement}
+%     $$ \ddot{x} + \omega_0^2 x = \epsilon f(\dot{x}, x, t) \qquad 0 < \epsilon \ll \omega_0 $$
+%     \begin{itemize}
+%         \item Méthodes d'analyse approximative pour équations harmoniques perturbés
+%         \item On suppose pouvoir trouver solutions sous la forme \cite{rand_lecture_2012} :
+%             $$x(t) = r(t)\cos(\omega_0 t + \phi(t)) \qquad \dot{x}(t) =  -\omega_0 r(t)\sin(\omega_0 t + \phi(t))$$
+%         %\item Remarque : on ne considère pas les contributions de $\dot{r}$ et de $\dot{\phi}$
+%         \item $r(t)$ et $\phi(t)$ sont lentement variable pour petit $\epsilon$, permet de faire moyennement au premier ordre
+%             $$ r(t) \approx \langle r \rangle \qquad \phi(t) \approx \langle \phi \rangle $$
+%     \end{itemize}
+% \end{frame}
 
-\begin{frame}{Oscillateur de Duffing - 2}
-  %\begin{itemize}
-  \begin{equation*}
-    x(t) = z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t}
-    \qquad 
-    \dot{x}(t) = i\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right]
-    \label{eq:duff_x_xdot_exp}
-  \end{equation*}
-  \begin{itemize}
-    \item Substitution dans l'équation différentielle
-  \end{itemize}
-  \begin{dmath*}
-    2i\omega \dot{z}(t)e^{i\omega t} + (i\omega)^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
-    + i\epsilon\gamma\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right] \\
-    + \omega_0^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
-    + \epsilon \alpha \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]^3 = \epsilon \frac{f_0}{2}\left[ e^{i\omega t} + e^{-i\omega t} \right]
-  \end{dmath*}
-  \begin{itemize}
-    \item Moyennement
-  \end{itemize}
-  \begin{dmath*}
-    2i\omega \dot{z}
-    = (\omega^2 - \omega_0^2)z(t) - i\epsilon\gamma\omega z(t) - 3\epsilon\alpha |z|^2 z(t) + \epsilon \frac{f_0}{2}
-  \end{dmath*}
-  \begin{itemize}
-    \item Adimensionnement
-  \end{itemize}
-  \begin{equation*}
-    q'(\tau) = -i\Omega q(\tau) - q(\tau) + i|q|^2q(\tau) - F_0
-  \end{equation*}
-  %\tiny
-  \begin{equation*}
-    \tau = \frac{\epsilon\gamma}{2}t
-    \qquad
-    q(\tau) = \sqrt{\frac{3\alpha}{\omega\gamma}}z(t)
-    \qquad
-    \Omega = \frac{(\omega - \omega_0)}{\epsilon\gamma/2}
-    \qquad
-    F_0 = \frac{\sqrt{3\alpha}f_0}{2(\omega \gamma)^{3/2}}
-  \end{equation*}
-  \small
+% \begin{frame}{Oscillateur de Duffing - 2}
+%   %\begin{itemize}
+%   \begin{equation*}
+%     x(t) = z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t}
+%     \qquad 
+%     \dot{x}(t) = i\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right]
+%     \label{eq:duff_x_xdot_exp}
+%   \end{equation*}
+%   \begin{itemize}
+%     \item Substitution dans l'équation différentielle
+%   \end{itemize}
+%   \begin{dmath*}
+%     2i\omega \dot{z}(t)e^{i\omega t} + (i\omega)^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
+%     + i\epsilon\gamma\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right] \\
+%     + \omega_0^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
+%     + \epsilon \alpha \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]^3 = \epsilon \frac{f_0}{2}\left[ e^{i\omega t} + e^{-i\omega t} \right]
+%   \end{dmath*}
+%   \begin{itemize}
+%     \item Moyennement
+%   \end{itemize}
+%   \begin{dmath*}
+%     2i\omega \dot{z}
+%     = (\omega^2 - \omega_0^2)z(t) - i\epsilon\gamma\omega z(t) - 3\epsilon\alpha |z|^2 z(t) + \epsilon \frac{f_0}{2}
+%   \end{dmath*}
+%   \begin{itemize}
+%     \item Adimensionnement
+%   \end{itemize}
+%   \begin{equation*}
+%     q'(\tau) = -i\Omega q(\tau) - q(\tau) + i|q|^2q(\tau) - F_0
+%   \end{equation*}
+%   %\tiny
+%   \begin{equation*}
+%     \tau = \frac{\epsilon\gamma}{2}t
+%     \qquad
+%     q(\tau) = \sqrt{\frac{3\alpha}{\omega\gamma}}z(t)
+%     \qquad
+%     \Omega = \frac{(\omega - \omega_0)}{\epsilon\gamma/2}
+%     \qquad
+%     F_0 = \frac{\sqrt{3\alpha}f_0}{2(\omega \gamma)^{3/2}}
+%   \end{equation*}
+%   \small
  
-\end{frame}
+% \end{frame}
 
-\begin{frame}{Oscillateur de Duffing - 3}
-  \begin{itemize}
-    \item Après moyennement et adimensionnement, on trouve l'amplitude complexe $q_0$ du régime permanent pour $\omega \approx \omega_0$ \cite{pistolesi_duffing_nodate}. $\Omega \propto (\omega-\omega_0)$
-        $$  q_0 = \frac{F_0}{|q_0|^2 - \Omega + i} \implies \Omega = |q_0|^2 \pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 } $$
-    \item Bistabilité d'amplitude et hystérèse \cite{landau_mechanics_1976}
-  \end{itemize}
-    \includegraphics[width=0.32\textwidth]{images/duffing/F0=0.5.png}
-    \includegraphics[width=0.32\textwidth]{images/duffing/F0=1.5.png}
-    \includegraphics[width=0.32\textwidth]{images/duffing/F0=5.0.png}
-\end{frame}
+% \begin{frame}{Oscillateur de Duffing - 3}
+%   \begin{itemize}
+%     \item Après moyennement et adimensionnement, on trouve l'amplitude complexe $q_0$ du régime permanent pour $\omega \approx \omega_0$ \cite{pistolesi_duffing_nodate}. $\Omega \propto (\omega-\omega_0)$
+%         $$  q_0 = \frac{F_0}{|q_0|^2 - \Omega + i} \implies \Omega = |q_0|^2 \pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 } $$
+%     \item Bistabilité d'amplitude et hystérèse \cite{landau_mechanics_1976}
+%   \end{itemize}
+%     \includegraphics[width=0.32\textwidth]{images/duffing/F0=0.5.png}
+%     \includegraphics[width=0.32\textwidth]{images/duffing/F0=1.5.png}
+%     \includegraphics[width=0.32\textwidth]{images/duffing/F0=5.0.png}
+% \end{frame}
 
 %\section{Oscillateur de Van der Pol}
 \begin{frame}{Oscillateur de Van der Pol - 1}
@@ -222,6 +232,18 @@
 
 \end{frame}
 
+\begin{frame}{Moyennement}
+  $$ \ddot{x} + \omega_0^2 x = \epsilon f(\dot{x}, x, t) \qquad 0 < \epsilon \ll \omega_0 $$
+  \begin{itemize}
+      \item Méthodes d'analyse approximative pour équations harmoniques perturbés
+      \item On suppose pouvoir trouver solutions sous la forme \cite{rand_lecture_2012} :
+          $$x(t) = r(t)\cos(\omega_0 t + \phi(t)) \qquad \dot{x}(t) =  -\omega_0 r(t)\sin(\omega_0 t + \phi(t))$$
+      %\item Remarque : on ne considère pas les contributions de $\dot{r}$ et de $\dot{\phi}$
+      \item $r(t)$ et $\phi(t)$ sont lentement variable pour petit $\epsilon$, permet de faire moyennement au premier ordre
+          $$ r(t) \approx \langle r \rangle \qquad \phi(t) \approx \langle \phi \rangle $$
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Oscillateur de Van der Pol - 2}
     \begin{itemize}
       \item On peut trouver la fréquence angulaire $\omega$ du régime permanent avec méthode de Linsted \cite{rand_lecture_2012} :
@@ -237,8 +259,28 @@
         \right.\,
         \qquad 
         x(t) = r(t)\cos(t+\phi_0)
+        %x(t) = z(t)e^{i t} + \bar{z}(t) e^{-i t}
+        %\qquad 
+        %\dot{x}(t) = i \left[ z(t)e^{i t} - \bar{z}(t) e^{-i t} \right]
+  %     \label{eq:duff_x_xdot_exp}
       \end{equation*}
     \item Pas de phase de référence, c.a.d que $\phi_0$ dépend purement des conditions initiales et non du système
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Oscillateur de Van der Pol - 3}
+    \begin{itemize}
+      \item Résolution par séparation des variables
+      \begin{equation*}
+        r(t) = 2 \sqrt{ \frac{A}{A + e^{-\epsilon t}} }
+        \qquad
+        \text{Où}
+        \qquad 
+        A = \frac{r(0)^2}{4 - r(0)^2}
+      \end{equation*}
+      \begin{figure}
+        \includegraphics[width=0.6\textwidth]{images/vdp/vdp_approx_transient.png}
+      \end{figure}
     \end{itemize}
   \end{frame}
 
@@ -255,8 +297,12 @@
 \section{Synchronisation}
 \begin{frame}{Que est-ce la synchronisation ?}
   \begin{itemize}
-    \item Phénomène où plusieurs oscillateurs verouille leurs phase l'un par rapport à l'autre \cite{matheny_phase_2014}
-    \item \emph{Phase locking}
+    \item Plusieurs types synchronisation plus ou moins fortes dans la literatture
+    \begin{itemize}
+      \item Phénomène où plusieurs oscillateurs verouille leurs phase l'un par rapport à l'autre \cite{matheny_phase_2014}
+      \item \emph{Phase locking}
+    \end{itemize}
+    \item Je m'interesse au cas simple avec verouillage de l'amplitude et de la phase.
   \end{itemize}
 \end{frame}
 
@@ -295,19 +341,45 @@
     \item On peut vérifier l'existence des solutions stationnaires $r_1=r_2=2$ avec $\Theta=0$ ou $\Theta=\pi$
   \end{itemize}
 \end{frame}
+
+
     %     \includegraphics[width=\linewidth]{images/couplee/eigenvalues_eps=0.2.png}%
 
 \begin{frame}{Oscillateurs à cycle limite couplés - 2}
   \begin{itemize}
-    \item L'analyse de stabilité linéaire montre que ce sont des solutions stationnaires stable (valeurs propres négatives)
+    \item L'analyse de stabilité linéaire montre que ce sont des solutions stationnaires stable (valeurs propres de la matrice jacobienne négatives)
       \item La dynamique autour des deux points sont identiques
   \end{itemize}
   \begin{figure}
     \centering
-    \includegraphics[width=0.37\textwidth]{images/couplee/eigenvalues_eps=0.2.png}
+    \includegraphics[width=0.37\textwidth]{images/couplee/title_Re_eigenvalues_eps=0.2.png}
     \hfill
     \includegraphics[width=0.62\textwidth]{images/couplee/llabel_k=1_x0=[0.038,-0.018,0.265,-0.486]_ϵ=0.1.png}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Oscillateurs à cycle limite couplés - 3}
+
+  %\begin{figure}
+  %  \includegraphics[width=0.6
+  %  
+  %  \textwidth]{images/couplee/llabel_k=1_x0=[0.038,-0.018,0.265,-0.486]_ϵ=0.1.png}
+  %\end{figure}
+  \begin{figure}
+      \includegraphics[width=0.32\textwidth]{images/couplee/phase_traj_eps=0.1_k=1_X0=[0.038, -0.018, 0.265, -0.486].png}
+      \hfill
+      \includegraphics[width=0.32\textwidth]{images/couplee/phase_traj_eps=0.1_k=1_X0=[-0.02, 0.01, 0.04, 0].png}
+      \hfill
+      \includegraphics[width=0.32
+      \textwidth]{images/couplee/phase_traj_eps=0.1_k=0.25_X0=[-0.02, 0.01, 0.04, 0].png}
+  \end{figure}
+  \begin{center}{\tiny Trajéctoires dans l'espace de phase possibles}\end{center}
+  \begin{itemize}
+    \item Possibilité d'avoir d'autres solution stationnaires stables/instables
+    \begin{itemize}
+      \item pas révélé par l'étude numérique
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 % % Section 4: Applications
